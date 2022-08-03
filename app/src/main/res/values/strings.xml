@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">TFM Cristian Trapero</string>
+    <string name="notifyTitle">Titulo notificacion</string>
+    <string name="gpsNotifyMsg">GPS notificado。</string>
+    <string name="setting">Ajustes</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="start_scan">Escanear</string>
+    <string name="stop_scan">Parar escaneo</string>
+    <string name="expand_search_settings">Expandir detalles de busqueda</string>
+    <string name="retrieve_search_settings">Devolver los parametros de busqueda</string>
+    <string name="connect_fail">Fallo al conectar</string>
+    <string name="active_disconnected">Activada desconexion</string>
+    <string name="disconnected">Desconectado</string>
+    <string name="please_open_blue">Habilita BLE</string>
+    <string name="select_operation_type">Selecciona tipo de operacion</string>
+    <string name="characteristic">Caracteristicas</string>
+    <string name="data_changed">Datos cambiados：</string>
+    <string name="read">Leer</string>
+    <string name="write">Escribir</string>
+    <string name="open_notification">Abrir notificacion</string>
+    <string name="close_notification">Cerrar notificacion</string>
+    <string name="service_list">Lista de servicios</string>
+    <string name="characteristic_list">Lista de caracteristicas</string>
+    <string name="console">Consola</string>
+    <string name="name">Nombre：</string>
+    <string name="mac">MAC:</string>
+    <string name="service">Servicio</string>
+    <string name="type">Tipo</string>
+    <string name="scan_setting">Preferencias de escaneo</string>
+    <string name="setting_name">Setear nombre</string>
+    <string name="setting_mac">Setear MAC</string>
+    <string name="setting_uuid">Setear uuid</string>
+    <string name="input_hex">Introduce hex</string>
+    <string name="connect">Conectar</string>
+    <string name="connected">Conectado</string>
+    <string name="disconnect">Desconectar</string>
+    <string name="enter">Entrar</string>
+
+</resources>
