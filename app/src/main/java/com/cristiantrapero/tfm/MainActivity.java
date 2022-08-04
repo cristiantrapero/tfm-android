@@ -19,7 +19,6 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -39,7 +38,6 @@ import com.clj.fastble.callback.BleMtuChangedCallback;
 import com.clj.fastble.callback.BleRssiCallback;
 import com.clj.fastble.callback.BleScanCallback;
 import com.clj.fastble.exception.BleException;
-import com.clj.fastble.scan.BleScanRuleConfig;
 import com.cristiantrapero.tfm.adapter.DeviceAdapter;
 import com.clj.fastble.BleManager;
 import com.clj.fastble.data.BleDevice;
@@ -48,8 +46,6 @@ import com.cristiantrapero.tfm.comm.ObserverManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -261,6 +257,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         BleManager.getInstance().connect(bleDevice, new BleGattCallback() {
             @Override
             public void onStartConnect() {
+                progressDialog.setTitle(R.string.connecting);
+                progressDialog.setMessage(bleDevice.getName());
                 progressDialog.show();
             }
 
@@ -284,7 +282,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDisConnected(boolean isActiveDisConnected, BleDevice bleDevice, BluetoothGatt gatt, int status) {
                 progressDialog.dismiss();
 
-                mDeviceAdapter.removeDevice(bleDevice);
+                //mDeviceAdapter.removeDevice(bleDevice);
+
                 mDeviceAdapter.notifyDataSetChanged();
 
                 if (isActiveDisConnected) {

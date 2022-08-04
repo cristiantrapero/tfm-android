@@ -13,7 +13,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_blue_remote" />
+            android:src="@drawable/ic_baseline_bluetooth_24" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -27,7 +27,6 @@
                 android:id="@+id/txt_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
                 android:textSize="14sp" />
 
             <TextView
@@ -35,6 +34,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/connected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="@string/connected"
+                android:visibility="gone"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -58,11 +66,11 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginLeft="5dp"
-                android:src="@mipmap/ic_rssi" />
+                android:src="@drawable/ic_baseline_rss_feed_24" />
 
             <Button
                 android:id="@+id/btn_connect"
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/connect"
@@ -78,15 +86,9 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/connected"
-                android:textSize="14sp" />
-
             <Button
                 android:id="@+id/btn_disconnect"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/disconnect"

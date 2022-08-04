@@ -91,6 +91,7 @@ public class DeviceAdapter extends BaseAdapter {
             convertView.setTag(holder);
             holder.img_blue = (ImageView) convertView.findViewById(R.id.img_blue);
             holder.txt_name = (TextView) convertView.findViewById(R.id.txt_name);
+            holder.connected = (TextView) convertView.findViewById(R.id.connected);
             holder.txt_mac = (TextView) convertView.findViewById(R.id.txt_mac);
             holder.txt_rssi = (TextView) convertView.findViewById(R.id.txt_rssi);
             holder.layout_idle = (LinearLayout) convertView.findViewById(R.id.layout_idle);
@@ -98,6 +99,7 @@ public class DeviceAdapter extends BaseAdapter {
             holder.btn_disconnect = (Button) convertView.findViewById(R.id.btn_disconnect);
             holder.btn_connect = (Button) convertView.findViewById(R.id.btn_connect);
             holder.btn_detail = (Button) convertView.findViewById(R.id.btn_detail);
+
         }
 
         final BleDevice bleDevice = getItem(position);
@@ -113,12 +115,15 @@ public class DeviceAdapter extends BaseAdapter {
                 holder.img_blue.setImageResource(R.mipmap.ic_blue_connected);
                 holder.txt_name.setTextColor(0xFF1DE9B6);
                 holder.txt_mac.setTextColor(0xFF1DE9B6);
+                holder.connected.setTextColor(0xFF1DE9B6);
+                holder.connected.setVisibility(View.VISIBLE);
                 holder.layout_idle.setVisibility(View.GONE);
                 holder.layout_connected.setVisibility(View.VISIBLE);
             } else {
                 holder.img_blue.setImageResource(R.mipmap.ic_blue_remote);
                 holder.txt_name.setTextColor(0xFF000000);
                 holder.txt_mac.setTextColor(0xFF000000);
+                holder.connected.setVisibility(View.GONE);
                 holder.layout_idle.setVisibility(View.VISIBLE);
                 holder.layout_connected.setVisibility(View.GONE);
             }
@@ -158,6 +163,7 @@ public class DeviceAdapter extends BaseAdapter {
         ImageView img_blue;
         TextView txt_name;
         TextView txt_mac;
+        TextView connected;
         TextView txt_rssi;
         LinearLayout layout_idle;
         LinearLayout layout_connected;

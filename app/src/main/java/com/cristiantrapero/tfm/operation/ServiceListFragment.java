@@ -26,7 +26,7 @@ import java.util.List;
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class ServiceListFragment extends Fragment {
 
-    private TextView txt_name, txt_mac;
+    private TextView txt_name, txt_mac, txt_devices, txt_rssi;
     private ResultAdapter mResultAdapter;
 
     @Override
@@ -40,6 +40,8 @@ public class ServiceListFragment extends Fragment {
     private void initView(View v) {
         txt_name = (TextView) v.findViewById(R.id.txt_name);
         txt_mac = (TextView) v.findViewById(R.id.txt_mac);
+        txt_rssi = (TextView) v.findViewById(R.id.txt_rssi);
+        txt_devices = (TextView) v.findViewById(R.id.txt_devices);
 
         mResultAdapter = new ResultAdapter(getActivity());
         ListView listView_device = (ListView) v.findViewById(R.id.list_service);
@@ -58,10 +60,12 @@ public class ServiceListFragment extends Fragment {
         BleDevice bleDevice = ((OperationActivity) getActivity()).getBleDevice();
         String name = bleDevice.getName();
         String mac = bleDevice.getMac();
+        int rssi = bleDevice.getRssi();
         BluetoothGatt gatt = BleManager.getInstance().getBluetoothGatt(bleDevice);
 
-        txt_name.setText(String.valueOf(getActivity().getString(R.string.name) + name));
+        txt_name.setText(String.valueOf(getActivity().getString(R.string.node_name) + name));
         txt_mac.setText(String.valueOf(getActivity().getString(R.string.mac) + mac));
+        txt_rssi.setText(String.valueOf(getActivity().getString(R.string.rssi) + rssi));
 
         mResultAdapter.clear();
         for (BluetoothGattService service : gatt.getServices()) {
