@@ -22,10 +22,10 @@
     <string name="service_list">Lista de servicios</string>
     <string name="characteristic_list">Lista de caracteristicas</string>
     <string name="console">Consola</string>
-    <string name="name">Name：</string>
-    <string name="node_name">Node name：</string>
-    <string name="mac">MAC: </string>
-    <string name="rssi">RSSI: </string>
+    <string name="name">Name:</string>
+    <string name="node_name">Node name:</string>
+    <string name="mac">MAC:</string>
+    <string name="rssi">RSSI:</string>
     <string name="service">Servicio</string>
     <string name="type">Tipo</string>
     <string name="scan_setting">Preferencias de escaneo</string>
@@ -38,5 +38,6 @@
     <string name="connected">Connected</string>
     <string name="disconnect">Disconnect</string>
     <string name="enter">Enter</string>
+    <string name="devices">Devices:</string>
 
 </resources>

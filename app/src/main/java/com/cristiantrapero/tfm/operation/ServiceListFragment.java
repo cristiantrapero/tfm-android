@@ -38,10 +38,10 @@ public class ServiceListFragment extends Fragment {
     }
 
     private void initView(View v) {
-        txt_name = (TextView) v.findViewById(R.id.txt_name);
-        txt_mac = (TextView) v.findViewById(R.id.txt_mac);
-        txt_rssi = (TextView) v.findViewById(R.id.txt_rssi);
-        txt_devices = (TextView) v.findViewById(R.id.txt_devices);
+        txt_name = (TextView) v.findViewById(R.id.name);
+        txt_mac = (TextView) v.findViewById(R.id.mac);
+        txt_rssi = (TextView) v.findViewById(R.id.rssi);
+        txt_devices = (TextView) v.findViewById(R.id.devices);
 
         mResultAdapter = new ResultAdapter(getActivity());
         ListView listView_device = (ListView) v.findViewById(R.id.list_service);
@@ -63,9 +63,10 @@ public class ServiceListFragment extends Fragment {
         int rssi = bleDevice.getRssi();
         BluetoothGatt gatt = BleManager.getInstance().getBluetoothGatt(bleDevice);
 
-        txt_name.setText(String.valueOf(getActivity().getString(R.string.node_name) + name));
-        txt_mac.setText(String.valueOf(getActivity().getString(R.string.mac) + mac));
-        txt_rssi.setText(String.valueOf(getActivity().getString(R.string.rssi) + rssi));
+        txt_name.setText(name);
+        txt_mac.setText(mac);
+        txt_rssi.setText(String.valueOf(rssi));
+        txt_devices.setText(String.valueOf(1));
 
         mResultAdapter.clear();
         for (BluetoothGattService service : gatt.getServices()) {

@@ -169,50 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDeviceAdapter.notifyDataSetChanged();
     }
 
-    private void setScanRule() {
-//        String[] uuids;
-//        String str_uuid = et_uuid.getText().toString();
-//        if (TextUtils.isEmpty(str_uuid)) {
-//            uuids = null;
-//        } else {
-//            uuids = str_uuid.split(",");
-//        }
-//        UUID[] serviceUuids = null;
-//        if (uuids != null && uuids.length > 0) {
-//            serviceUuids = new UUID[uuids.length];
-//            for (int i = 0; i < uuids.length; i++) {
-//                String name = uuids[i];
-//                String[] components = name.split("-");
-//                if (components.length != 5) {
-//                    serviceUuids[i] = null;
-//                } else {
-//                    serviceUuids[i] = UUID.fromString(uuids[i]);
-//                }
-//            }
-//        }
-//
-//        String[] names;
-//        String str_name = et_name.getText().toString();
-//        if (TextUtils.isEmpty(str_name)) {
-//            names = null;
-//        } else {
-//            names = str_name.split(",");
-//        }
-//
-//        String mac = et_mac.getText().toString();
-//
-//        boolean isAutoConnect = sw_auto.isChecked();
-//
-//        BleScanRuleConfig scanRuleConfig = new BleScanRuleConfig.Builder()
-//                .setServiceUuids(serviceUuids)      // 只扫描指定的服务的设备，可选
-//                .setDeviceName(true, names)   // 只扫描指定广播名的设备，可选
-//                .setDeviceMac(mac)                  // 只扫描指定mac的设备，可选
-//                .setAutoConnect(isAutoConnect)      // 连接时的autoConnect参数，可选，默认false
-//                .setScanTimeOut(10000)              // 扫描超时时间，可选，默认10秒
-//                .build();
-//        BleManager.getInstance().initScanRule(scanRuleConfig);
-    }
-
     private void startScan() {
         BleManager.getInstance().scan(new BleScanCallback() {
             @Override
@@ -392,7 +348,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             .setCancelable(false)
                             .show();
                 } else {
-                    setScanRule();
                     startScan();
                 }
                 break;
@@ -411,11 +366,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_OPEN_GPS) {
             if (checkGPSIsOpen()) {
-                setScanRule();
                 startScan();
             }
         }
     }
-
 }
 
