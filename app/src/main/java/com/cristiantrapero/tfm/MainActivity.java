@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mDeviceAdapter.notifyDataSetChanged();
                 pb_scan.setVisibility(View.VISIBLE);
                 btn_scan.setText(getString(R.string.stop_scan));
+                Toast.makeText(MainActivity.this, getString(R.string.scanning_started), Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -169,10 +170,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onScanning(BleDevice bleDevice) {
                 String name = bleDevice.getName();
 
+                // If name has patter NODE-*****
                 if (name != null) {
-                    Log.d(name, name);
                     boolean valid_name =  Pattern.matches("^NODE.*$", name);
-                    Log.v("",Boolean.toString(valid_name));
                     if (valid_name == true) {
                         mDeviceAdapter.addDevice(bleDevice);
                         mDeviceAdapter.notifyDataSetChanged();

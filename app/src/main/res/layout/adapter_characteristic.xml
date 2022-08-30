@@ -12,7 +12,7 @@
         android:paddingLeft="15dp">
 
         <TextView
-            android:id="@+id/txt_title"
+            android:id="@+id/txt_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/characteristic"

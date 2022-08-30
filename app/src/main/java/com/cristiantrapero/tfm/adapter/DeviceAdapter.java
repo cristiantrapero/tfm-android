@@ -99,7 +99,6 @@ public class DeviceAdapter extends BaseAdapter {
             holder.btn_disconnect = (Button) convertView.findViewById(R.id.btn_disconnect);
             holder.btn_connect = (Button) convertView.findViewById(R.id.btn_connect);
             holder.btn_detail = (Button) convertView.findViewById(R.id.btn_detail);
-
         }
 
         final BleDevice bleDevice = getItem(position);
@@ -111,8 +110,8 @@ public class DeviceAdapter extends BaseAdapter {
             holder.txt_name.setText(name);
             holder.txt_mac.setText(mac);
             holder.txt_rssi.setText(String.valueOf(rssi));
+
             if (isConnected) {
-                holder.img_blue.setImageResource(R.mipmap.ic_blue_connected);
                 holder.txt_name.setTextColor(0xFF1DE9B6);
                 holder.txt_mac.setTextColor(0xFF1DE9B6);
                 holder.connected.setTextColor(0xFF1DE9B6);
@@ -120,7 +119,6 @@ public class DeviceAdapter extends BaseAdapter {
                 holder.layout_idle.setVisibility(View.GONE);
                 holder.layout_connected.setVisibility(View.VISIBLE);
             } else {
-                holder.img_blue.setImageResource(R.mipmap.ic_blue_remote);
                 holder.txt_name.setTextColor(0xFF000000);
                 holder.txt_mac.setTextColor(0xFF000000);
                 holder.connected.setVisibility(View.GONE);

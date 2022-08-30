@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-public class CharacteristicListFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
     private ResultAdapter mResultAdapter;
 
@@ -39,7 +39,7 @@ public class CharacteristicListFragment extends Fragment {
 
     private void initView(View v) {
         mResultAdapter = new ResultAdapter(getActivity());
-        ListView listView_device = (ListView) v.findViewById(R.id.list_service);
+        ListView listView_device = (ListView) v.findViewById(R.id.list_chats);
         listView_device.setAdapter(mResultAdapter);
         listView_device.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -140,10 +140,10 @@ public class CharacteristicListFragment extends Fragment {
             if (convertView != null) {
                 holder = (ViewHolder) convertView.getTag();
             } else {
-                convertView = View.inflate(context, R.layout.adapter_service, null);
+                convertView = View.inflate(context, R.layout.adapter_chat, null);
                 holder = new ViewHolder();
                 convertView.setTag(holder);
-                holder.txt_title = (TextView) convertView.findViewById(R.id.txt_title);
+                holder.txt_title = (TextView) convertView.findViewById(R.id.txt_username);
                 holder.txt_uuid = (TextView) convertView.findViewById(R.id.txt_uuid);
                 holder.txt_type = (TextView) convertView.findViewById(R.id.txt_type);
                 holder.img_next = (ImageView) convertView.findViewById(R.id.img_next);

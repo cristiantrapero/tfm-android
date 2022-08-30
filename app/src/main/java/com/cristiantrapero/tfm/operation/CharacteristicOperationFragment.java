@@ -70,7 +70,7 @@ public class CharacteristicOperationFragment extends Fragment {
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_characteric_operation, null);
             view.setTag(bleDevice.getKey() + characteristic.getUuid().toString() + charaProp);
             LinearLayout layout_add = (LinearLayout) view.findViewById(R.id.layout_add);
-            final TextView txt_title = (TextView) view.findViewById(R.id.txt_title);
+            final TextView txt_title = (TextView) view.findViewById(R.id.txt_username);
             txt_title.setText(String.valueOf(characteristic.getUuid().toString() + getActivity().getString(R.string.data_changed)));
             final TextView txt = (TextView) view.findViewById(R.id.txt);
             txt.setMovementMethod(ScrollingMovementMethod.getInstance());

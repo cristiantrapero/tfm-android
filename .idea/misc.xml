@@ -7,7 +7,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_bluetooth_24.xml" value="0.2885" />
         <entry key="app/src/main/res/drawable/ic_baseline_rss_feed_24.xml" value="0.2885" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2885" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15172101449275363" />
         <entry key="app/src/main/res/layout/activity_operation.xml" value="0.2128623188405797" />
         <entry key="app/src/main/res/layout/activity_user.xml" value="0.2185546875" />
         <entry key="app/src/main/res/layout/adapter_characteristic.xml" value="0.29163513183593737" />
@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/layout/adapter_service.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/fragment_characteric_list.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/fragment_characteric_operation.xml" value="0.19021739130434784" />
+        <entry key="app/src/main/res/layout/fragment_chat_list.xml" value="0.15172101449275363" />
         <entry key="app/src/main/res/layout/fragment_service_list.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/layout_characteric_operation.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/layout_characteric_operation_button.xml" value="0.19021739130434784" />

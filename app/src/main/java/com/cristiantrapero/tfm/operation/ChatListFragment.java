@@ -24,29 +24,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-public class ServiceListFragment extends Fragment {
+public class ChatListFragment extends Fragment {
 
-    private TextView txt_name, txt_mac, txt_devices, txt_rssi;
     private ResultAdapter mResultAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_service_list, null);
+        View v = inflater.inflate(R.layout.fragment_chat_list, null);
         initView(v);
         showData();
         return v;
     }
 
     private void initView(View v) {
-        txt_name = (TextView) v.findViewById(R.id.name);
-        txt_mac = (TextView) v.findViewById(R.id.mac);
-        txt_rssi = (TextView) v.findViewById(R.id.rssi);
-        txt_devices = (TextView) v.findViewById(R.id.devices);
-
         mResultAdapter = new ResultAdapter(getActivity());
-        ListView listView_device = (ListView) v.findViewById(R.id.list_service);
-        listView_device.setAdapter(mResultAdapter);
-        listView_device.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ListView list_chats = (ListView) v.findViewById(R.id.list_chats);
+        list_chats.setAdapter(mResultAdapter);
+
+        list_chats.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BluetoothGattService service = mResultAdapter.getItem(position);
@@ -58,15 +53,7 @@ public class ServiceListFragment extends Fragment {
 
     private void showData() {
         BleDevice bleDevice = ((OperationActivity) getActivity()).getBleDevice();
-        String name = bleDevice.getName();
-        String mac = bleDevice.getMac();
-        int rssi = bleDevice.getRssi();
         BluetoothGatt gatt = BleManager.getInstance().getBluetoothGatt(bleDevice);
-
-        txt_name.setText(name);
-        txt_mac.setText(mac);
-        txt_rssi.setText(String.valueOf(rssi));
-        txt_devices.setText(String.valueOf(1));
 
         mResultAdapter.clear();
         for (BluetoothGattService service : gatt.getServices()) {
@@ -116,27 +103,24 @@ public class ServiceListFragment extends Fragment {
             if (convertView != null) {
                 holder = (ViewHolder) convertView.getTag();
             } else {
-                convertView = View.inflate(context, R.layout.adapter_service, null);
+                convertView = View.inflate(context, R.layout.adapter_chat, null);
                 holder = new ViewHolder();
                 convertView.setTag(holder);
-                holder.txt_title = (TextView) convertView.findViewById(R.id.txt_title);
+                holder.txt_username = (TextView) convertView.findViewById(R.id.txt_username);
                 holder.txt_uuid = (TextView) convertView.findViewById(R.id.txt_uuid);
-                holder.txt_type = (TextView) convertView.findViewById(R.id.txt_type);
             }
 
             BluetoothGattService service = bluetoothGattServices.get(position);
             String uuid = service.getUuid().toString();
 
-            holder.txt_title.setText(String.valueOf(getActivity().getString(R.string.service) + "(" + position + ")"));
+            holder.txt_username.setText(String.valueOf(getActivity().getString(R.string.service) + "(" + position + ")"));
             holder.txt_uuid.setText(uuid);
-            holder.txt_type.setText(getActivity().getString(R.string.type));
             return convertView;
         }
 
         class ViewHolder {
-            TextView txt_title;
+            TextView txt_username;
             TextView txt_uuid;
-            TextView txt_type;
         }
     }
 

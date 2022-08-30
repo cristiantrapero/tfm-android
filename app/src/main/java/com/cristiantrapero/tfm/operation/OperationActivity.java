@@ -100,7 +100,7 @@ public class OperationActivity extends AppCompatActivity implements Observer {
             finish();
 
         titles = new String[]{
-                getString(R.string.service_list),
+                getString(R.string.chats),
                 getString(R.string.characteristic_list),
                 getString(R.string.console)};
     }
@@ -115,15 +115,15 @@ public class OperationActivity extends AppCompatActivity implements Observer {
         toolbar.setTitle(titles[page]);
         updateFragment(page);
         if (currentPage == 1) {
-            ((com.cristiantrapero.tfm.operation.CharacteristicListFragment) fragments.get(1)).showData();
+            ((ChatFragment) fragments.get(1)).showData();
         } else if (currentPage == 2) {
             ((com.cristiantrapero.tfm.operation.CharacteristicOperationFragment) fragments.get(2)).showData();
         }
     }
 
     private void prepareFragment() {
-        fragments.add(new com.cristiantrapero.tfm.operation.ServiceListFragment());
-        fragments.add(new com.cristiantrapero.tfm.operation.CharacteristicListFragment());
+        fragments.add(new ChatListFragment());
+        fragments.add(new ChatFragment());
         fragments.add(new com.cristiantrapero.tfm.operation.CharacteristicOperationFragment());
         for (Fragment fragment : fragments) {
             getSupportFragmentManager().beginTransaction().add(R.id.fragment, fragment).hide(fragment).commit();
