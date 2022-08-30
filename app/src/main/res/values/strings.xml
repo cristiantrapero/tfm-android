@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">TFM</string>
-    <string name="notifyTitle">Notification title</string>
-    <string name="gpsNotifyMsg">GPS notificado</string>
-    <string name="setting">Ajustes</string>
-    <string name="cancel">Cancelar</string>
-    <string name="start_scan">Start scan</string>
-    <string name="stop_scan">Stop scan</string>
+    <string name="app_name">LoRagram</string>
+    <string name="enable_gps_title">enable GPS</string>
+    <string name="enable_gps_message">please, enable GPS to start the node scanning</string>
+    <string name="setting">settings</string>
+    <string name="cancel">cancel</string>
+    <string name="start_scan">start scan</string>
+    <string name="stop_scan">stop scan</string>
+
     <string name="expand_search_settings">Expandir detalles de busqueda</string>
     <string name="retrieve_search_settings">Devolver los parametros de busqueda</string>
     <string name="connect_fail">Fail to connect</string>

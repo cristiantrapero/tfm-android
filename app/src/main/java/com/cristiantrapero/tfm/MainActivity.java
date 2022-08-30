@@ -25,12 +25,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Switch;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.clj.fastble.callback.BleGattCallback;
@@ -54,12 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int REQUEST_CODE_OPEN_GPS = 1;
     private static final int REQUEST_CODE_PERMISSION_LOCATION = 2;
 
-    private LinearLayout layout_setting;
-    private TextView txt_setting;
     private Button btn_scan;
-    private EditText et_name, et_mac, et_uuid;
-    private Switch sw_auto;
-    private ImageView img_loading;
+    private ProgressBar pb_scan;
 
     private Animation operatingAnim;
     private DeviceAdapter mDeviceAdapter;
@@ -113,19 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_scan.setText(getString(R.string.start_scan));
         btn_scan.setOnClickListener(this);
 
-//        et_name = (EditText) findViewById(R.id.et_name);
-//        et_mac = (EditText) findViewById(R.id.et_mac);
-//        et_uuid = (EditText) findViewById(R.id.et_uuid);
-//        sw_auto = (Switch) findViewById(R.id.sw_auto);
+        pb_scan = (ProgressBar) findViewById(R.id.pb_scan);
 
-        //layout_setting = (LinearLayout) findViewById(R.id.layout_setting);
-        //txt_setting = (TextView) findViewById(R.id.txt_setting);
-        //txt_setting.setOnClickListener(this);
-        //layout_setting.setVisibility(View.GONE);
-        //txt_setting.setText(getString(R.string.expand_search_settings));
-
-        img_loading = (ImageView) findViewById(R.id.img_loading);
-        img_loading.setVisibility(View.VISIBLE);
         operatingAnim = AnimationUtils.loadAnimation(this, R.anim.rotate);
         operatingAnim.setInterpolator(new LinearInterpolator());
         progressDialog = new ProgressDialog(this);
@@ -175,8 +156,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onScanStarted(boolean success) {
                 mDeviceAdapter.clearScanDevice();
                 mDeviceAdapter.notifyDataSetChanged();
-                img_loading.startAnimation(operatingAnim);
-                img_loading.setVisibility(View.VISIBLE);
+                pb_scan.setVisibility(View.VISIBLE);
                 btn_scan.setText(getString(R.string.stop_scan));
             }
 
@@ -202,9 +182,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onScanFinished(List<BleDevice> scanResultList) {
-                img_loading.clearAnimation();
-                img_loading.setVisibility(View.INVISIBLE);
                 btn_scan.setText(getString(R.string.start_scan));
+                pb_scan.setVisibility(View.GONE);
             }
         });
     }
@@ -220,8 +199,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onConnectFail(BleDevice bleDevice, BleException exception) {
-                img_loading.clearAnimation();
-                img_loading.setVisibility(View.INVISIBLE);
                 btn_scan.setText(getString(R.string.start_scan));
                 progressDialog.dismiss();
                 Toast.makeText(MainActivity.this, getString(R.string.connect_fail), Toast.LENGTH_LONG).show();
@@ -327,13 +304,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case Manifest.permission.ACCESS_FINE_LOCATION:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !checkGPSIsOpen()) {
                     new AlertDialog.Builder(this)
-                            .setTitle(R.string.notifyTitle)
-                            .setMessage(R.string.gpsNotifyMsg)
+                            .setTitle(R.string.enable_gps_title)
+                            .setMessage(R.string.enable_gps_message)
                             .setNegativeButton(R.string.cancel,
                                     new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            finish();
+                                            dialog.dismiss();
                                         }
                                     })
                             .setPositiveButton(R.string.setting,

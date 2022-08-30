@@ -26,6 +26,7 @@ import com.clj.fastble.data.BleDevice;
 import com.clj.fastble.exception.BleException;
 import com.clj.fastble.utils.HexUtil;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +94,8 @@ public class CharacteristicOperationFragment extends Fragment {
                                             runOnUiThread(new Runnable() {
                                                 @Override
                                                 public void run() {
-                                                    addText(txt, HexUtil.formatHexString(data, true));
+                                                    String s = new String(data, StandardCharsets.UTF_8);
+                                                    addText(txt, s);
                                                 }
                                             });
                                         }
@@ -126,11 +128,14 @@ public class CharacteristicOperationFragment extends Fragment {
                             if (TextUtils.isEmpty(hex)) {
                                 return;
                             }
+
+                            byte[] value = hex.getBytes(StandardCharsets.UTF_8);
+
                             BleManager.getInstance().write(
                                     bleDevice,
                                     characteristic.getService().getUuid().toString(),
                                     characteristic.getUuid().toString(),
-                                    HexUtil.hexStringToBytes(hex),
+                                    value,
                                     new BleWriteCallback() {
 
                                         @Override
