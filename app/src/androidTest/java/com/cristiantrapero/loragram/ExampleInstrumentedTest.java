@@ -1,4 +1,4 @@
-package com.cristiantrapero.tfm;
+package com.cristiantrapero.loragram;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.cristiantrapero.tfm", appContext.getPackageName());
+        assertEquals("com.cristiantrapero.loragram", appContext.getPackageName());
     }
 }
