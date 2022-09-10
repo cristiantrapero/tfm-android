@@ -11,3 +11,5 @@ This project implements an Android application to manage the sending of multimed
 4. Run it in a smartphone
 
 
+# Libraries
+This project uses the Android Bluetooth Low Energy FastBLE: https://github.com/Jasonchenlijian/FastBle
