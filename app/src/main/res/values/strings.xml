@@ -1,45 +1,4 @@
 <resources>
     <string name="app_name">LoRagram</string>
-    <string name="enable_gps_title">Enable GPS</string>
-    <string name="enable_gps_message">Please, enable GPS to start the node scanning</string>
-    <string name="setting">settings</string>
-    <string name="cancel">cancel</string>
     <string name="start_scan">start scan</string>
-    <string name="stop_scan">stop scan</string>
-    <string name="scanning_finished">Scanning finished</string>
-    <string name="scanning_started">Scanning started</string>
-    <string name="node_name">Node name:</string>
-    <string name="number_of_nodes">Number of nodes:</string>
-
-    <string name="connect_fail">Fail to connect</string>
-    <string name="active_disconnected">Dispositivo desconectado</string>
-    <string name="disconnected">Desconectado</string>
-    <string name="please_open_blue">Please, enable Bluetooth</string>
-    <string name="select_operation_type">Selecciona tipo de operacion</string>
-    <string name="characteristic">Caracteristicas</string>
-    <string name="data_changed">Datos cambiados：</string>
-    <string name="read">Leer</string>
-    <string name="write">Escribir</string>
-    <string name="open_notification">Abrir notificacion</string>
-    <string name="close_notification">Cerrar notificacion</string>
-    <string name="chats">Chats</string>
-    <string name="characteristic_list">Lista de caracteristicas</string>
-    <string name="console">Consola</string>
-    <string name="name">Name:</string>
-    <string name="mac">MAC:</string>
-    <string name="rssi">RSSI:</string>
-    <string name="service">Servicio</string>
-    <string name="type">Tipo</string>
-    <string name="scan_setting">Preferencias de escaneo</string>
-    <string name="setting_name">Setear nombre</string>
-    <string name="setting_mac">Setear MAC</string>
-    <string name="setting_uuid">Setear uuid</string>
-    <string name="input_hex">HEX input</string>
-    <string name="connect">Connect</string>
-    <string name="connecting">Connecting to device</string>
-    <string name="connected">Connected</string>
-    <string name="disconnect">Disconnect</string>
-    <string name="enter">Enter</string>
-    <string name="devices">Devices:</string>
-
 </resources>

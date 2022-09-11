@@ -1,4 +1,4 @@
-package com.cristiantrapero.tfm;
+package com.cristiantrapero.loragram;
 
 import org.junit.Test;
 
